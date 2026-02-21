@@ -151,7 +151,6 @@ class ReservationService:
             rooms_total=hotel.rooms_total,
             rooms_available=hotel.rooms_available,
             name=hotel.name,
-            
         )
 
         reservations[reservation.reservation_id] = asdict(reservation)
@@ -186,7 +185,6 @@ class ReservationService:
             rooms_total=hotel.rooms_total,
             rooms_available=hotel.rooms_available,
             name=hotel.name,
-            hotel_id=hotel.hotel_id,
         )
 
         reservation.cancel()
@@ -197,3 +195,4 @@ class ReservationService:
     def list_all(self) -> Dict[str, dict]:
         data = self.store.load()
         return data if isinstance(data, dict) else {}
+        
