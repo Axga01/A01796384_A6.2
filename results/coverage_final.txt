@@ -1,0 +1,12 @@
+Name                         Stmts   Miss  Cover   Missing
+----------------------------------------------------------
+src/__init__.py                  0      0   100%
+src/models.py                   30      0   100%
+src/services.py                150      8    95%   57-59, 121-123, 219-220
+src/storage.py                  27      3    89%   23, 51-52
+tests/test_customers.py         69      1    99%   115
+tests/test_hotels.py            76      1    99%   123
+tests/test_reservations.py      58      1    98%   98
+tests/test_storage.py           27      1    96%   45
+----------------------------------------------------------
+TOTAL                          437     15    97%
