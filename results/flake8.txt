@@ -1,0 +1,9 @@
+src/models.py:40:33: W292 no newline at end of file
+src/services.py:198:1: W293 blank line contains whitespace
+src/services.py:198:9: W292 no newline at end of file
+src/storage.py:21:80: E501 line too long (84 > 79 characters)
+src/storage.py:33:64: W292 no newline at end of file
+tests/test_customers.py:97:20: W292 no newline at end of file
+tests/test_hotels.py:105:20: W292 no newline at end of file
+tests/test_reservations.py:95:20: W292 no newline at end of file
+tests/test_storage.py:35:39: W292 no newline at end of file

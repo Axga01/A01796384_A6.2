@@ -1,0 +1,39 @@
+************* Module services
+src/services.py:198:0: C0304: Final newline missing (missing-final-newline)
+src/services.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+src/services.py:6:0: E0401: Unable to import 'src.models' (import-error)
+src/services.py:7:0: E0401: Unable to import 'src.storage' (import-error)
+src/services.py:10:0: C0115: Missing class docstring (missing-class-docstring)
+src/services.py:14:4: C0116: Missing function or method docstring (missing-function-docstring)
+src/services.py:26:4: C0116: Missing function or method docstring (missing-function-docstring)
+src/services.py:37:4: C0116: Missing function or method docstring (missing-function-docstring)
+src/services.py:46:4: C0116: Missing function or method docstring (missing-function-docstring)
+src/services.py:60:4: C0116: Missing function or method docstring (missing-function-docstring)
+src/services.py:65:0: C0115: Missing class docstring (missing-class-docstring)
+src/services.py:69:4: C0116: Missing function or method docstring (missing-function-docstring)
+src/services.py:78:4: C0116: Missing function or method docstring (missing-function-docstring)
+src/services.py:89:4: C0116: Missing function or method docstring (missing-function-docstring)
+src/services.py:98:4: C0116: Missing function or method docstring (missing-function-docstring)
+src/services.py:112:4: C0116: Missing function or method docstring (missing-function-docstring)
+src/services.py:117:0: C0115: Missing class docstring (missing-class-docstring)
+src/services.py:128:4: C0116: Missing function or method docstring (missing-function-docstring)
+src/services.py:160:4: C0116: Missing function or method docstring (missing-function-docstring)
+src/services.py:195:4: C0116: Missing function or method docstring (missing-function-docstring)
+************* Module models
+src/models.py:40:0: C0304: Final newline missing (missing-final-newline)
+src/models.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+src/models.py:8:0: C0115: Missing class docstring (missing-class-docstring)
+src/models.py:14:4: C0116: Missing function or method docstring (missing-function-docstring)
+src/models.py:20:4: C0116: Missing function or method docstring (missing-function-docstring)
+src/models.py:26:0: C0115: Missing class docstring (missing-class-docstring)
+src/models.py:33:0: C0115: Missing class docstring (missing-class-docstring)
+src/models.py:39:4: C0116: Missing function or method docstring (missing-function-docstring)
+************* Module storage
+src/storage.py:33:0: C0304: Final newline missing (missing-final-newline)
+src/storage.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+src/storage.py:12:4: C0116: Missing function or method docstring (missing-function-docstring)
+src/storage.py:28:4: C0116: Missing function or method docstring (missing-function-docstring)
+
+-----------------------------------
+Your code has been rated at 8.04/10
+

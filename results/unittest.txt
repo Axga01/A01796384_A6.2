@@ -1,0 +1,22 @@
+[ERROR] Customer not found.
+[ERROR] Customer already exists.
+[WARN] Customer record malformed.
+[WARN] Invalid data structure in /tmp/tmpus6jkq6j/customers.json. Using empty.
+[ERROR] Customer record invalid.
+[ERROR] Customer not found.
+[ERROR] Hotel already exists.
+[ERROR] Invalid room values.
+[ERROR] Hotel not found.
+[WARN] Hotel record malformed.
+[WARN] Invalid data structure in /tmp/tmpbhuxjdod/hotels.json. Using empty.
+[ERROR] Hotel record invalid.
+[ERROR] Hotel not found.
+[WARN] Reservation already canceled.
+[WARN] Reservation record malformed.
+[ERROR] Reservation not found.
+[ERROR] Reservation already exists.
+[WARN] Invalid data structure in /tmp/tmpbbxees7j/reservations.json. Using empty.
+[ERROR] Customer not found.
+[ERROR] Hotel not found.
+[ERROR] No rooms available.
+[WARN] Could not load /tmp/tmplm6v1px2/bad.json: Expecting property name enclosed in double quotes: line 1 column 3 (char 2). Using empty.
