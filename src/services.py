@@ -2,7 +2,7 @@
 Business services for hotels, customers, and reservations.
 
 These services use FileStore for persistence and provide CRUD operations
-and reservation logic with basic validations.
+plus reservation logic with basic validations.
 """
 
 from __future__ import annotations
@@ -29,6 +29,7 @@ class HotelService:
         if hotel.rooms_total < 0 or hotel.rooms_available < 0:
             print("[ERROR] Invalid room values.")
             return False
+
         hotels[hotel.hotel_id] = asdict(hotel)
         self.store.save(hotels)
         return True
@@ -36,11 +37,12 @@ class HotelService:
     def get(self, hotel_id: str) -> Optional[Hotel]:
         """Return a Hotel by id, or None if not found/invalid."""
         hotels = self.store.load()
-        h = hotels.get(hotel_id)
-        if not isinstance(h, dict):
+        record = hotels.get(hotel_id)
+        if not isinstance(record, dict):
             return None
+
         try:
-            return Hotel(**h)
+            return Hotel(**record)
         except TypeError:
             print("[WARN] Hotel record malformed.")
             return None
@@ -51,6 +53,7 @@ class HotelService:
         if hotel_id not in hotels:
             print("[ERROR] Hotel not found.")
             return False
+
         del hotels[hotel_id]
         self.store.save(hotels)
         return True
@@ -61,10 +64,12 @@ class HotelService:
         if hotel_id not in hotels:
             print("[ERROR] Hotel not found.")
             return False
+
         record = hotels[hotel_id]
         if not isinstance(record, dict):
             print("[ERROR] Hotel record invalid.")
             return False
+
         record.update(changes)
         hotels[hotel_id] = record
         self.store.save(hotels)
@@ -88,6 +93,7 @@ class CustomerService:
         if customer.customer_id in customers:
             print("[ERROR] Customer already exists.")
             return False
+
         customers[customer.customer_id] = asdict(customer)
         self.store.save(customers)
         return True
@@ -95,11 +101,12 @@ class CustomerService:
     def get(self, customer_id: str) -> Optional[Customer]:
         """Return a Customer by id, or None if not found/invalid."""
         customers = self.store.load()
-        c = customers.get(customer_id)
-        if not isinstance(c, dict):
+        record = customers.get(customer_id)
+        if not isinstance(record, dict):
             return None
+
         try:
-            return Customer(**c)
+            return Customer(**record)
         except TypeError:
             print("[WARN] Customer record malformed.")
             return None
@@ -110,6 +117,7 @@ class CustomerService:
         if customer_id not in customers:
             print("[ERROR] Customer not found.")
             return False
+
         del customers[customer_id]
         self.store.save(customers)
         return True
@@ -120,10 +128,12 @@ class CustomerService:
         if customer_id not in customers:
             print("[ERROR] Customer not found.")
             return False
+
         record = customers[customer_id]
         if not isinstance(record, dict):
             print("[ERROR] Customer record invalid.")
             return False
+
         record.update(changes)
         customers[customer_id] = record
         self.store.save(customers)
@@ -136,10 +146,7 @@ class CustomerService:
 
 
 class ReservationService:
-    """
-    Service for managing Reservation records and
-    room availability updates.
-    """
+    """Service for managing Reservation records and room availability updates."""
 
     def __init__(
         self,
@@ -184,18 +191,15 @@ class ReservationService:
         return True
 
     def cancel(self, reservation_id: str) -> bool:
-        """
-        Cancel an existing reservation and release a room
-        back to the hotel.
-        """
+        """Cancel an existing reservation and release a room back to the hotel."""
         reservations = self.store.load()
-        rec = reservations.get(reservation_id)
-        if not isinstance(rec, dict):
+        record = reservations.get(reservation_id)
+        if not isinstance(record, dict):
             print("[ERROR] Reservation not found.")
             return False
 
         try:
-            reservation = Reservation(**rec)
+            reservation = Reservation(**record)
         except TypeError:
             print("[WARN] Reservation record malformed.")
             return False
