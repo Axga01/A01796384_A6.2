@@ -1,5 +1,22 @@
-venv/
+# Python
 __pycache__/
+*.py[cod]
+
+# Virtual env
+venv/
+
+# Coverage / test artifacts
 .coverage
 htmlcov/
-*.pyc
+.coverage.*
+*.cover
+*.py,cover
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+
+# Temp
+*.tmp
+*.log
