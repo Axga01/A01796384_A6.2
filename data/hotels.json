@@ -1,0 +1,14 @@
+{
+  "H001": {
+    "hotel_id": "H001",
+    "name": "Hotel A",
+    "rooms_total": 3,
+    "rooms_available": 3
+  },
+  "H002": {
+    "hotel_id": "H002",
+    "name": "Hotel B",
+    "rooms_total": 1,
+    "rooms_available": 1
+  }
+}

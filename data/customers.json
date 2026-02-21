@@ -1,0 +1,12 @@
+{
+  "C001": {
+    "customer_id": "C001",
+    "name": "Customer One",
+    "email": "customer1@test.com"
+  },
+  "C002": {
+    "customer_id": "C002",
+    "name": "Customer Two",
+    "email": "customer2@test.com"
+  }
+}
