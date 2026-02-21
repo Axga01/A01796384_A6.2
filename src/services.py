@@ -136,7 +136,10 @@ class CustomerService:
 
 
 class ReservationService:
-    """Service for managing Reservation records and room availability updates."""
+    """
+    Service for managing Reservation records and
+    room availability updates.
+    """
 
     def __init__(
         self,
@@ -169,7 +172,6 @@ class ReservationService:
             print("[ERROR] No rooms available.")
             return False
 
-        # persist updated hotel availability
         self.hotels.update(
             hotel.hotel_id,
             rooms_total=hotel.rooms_total,
@@ -182,7 +184,10 @@ class ReservationService:
         return True
 
     def cancel(self, reservation_id: str) -> bool:
-        """Cancel an existing reservation and release a room back to the hotel."""
+        """
+        Cancel an existing reservation and release a room
+        back to the hotel.
+        """
         reservations = self.store.load()
         rec = reservations.get(reservation_id)
         if not isinstance(rec, dict):
