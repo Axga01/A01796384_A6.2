@@ -44,29 +44,62 @@ class TestHotelService(unittest.TestCase):
 
             result = service.delete("H999")
             self.assertFalse(result)
+
+    def test_create_invalid_rooms_fails(self):
+        with TemporaryDirectory() as tmp:
+            store = FileStore(f"{tmp}/hotels.json")
+            service = HotelService(store)
+
+            hotel = Hotel("HNEG", "Bad Hotel", -1, -1)
+            self.assertFalse(service.create(hotel))
+
     def test_update_hotel_success(self):
-    with TemporaryDirectory() as tmp:
-        store = FileStore(f"{tmp}/hotels.json")
-        service = HotelService(store)
+        with TemporaryDirectory() as tmp:
+            store = FileStore(f"{tmp}/hotels.json")
+            service = HotelService(store)
 
-        hotel = Hotel("H010", "Old Name", 2, 2)
-        self.assertTrue(service.create(hotel))
+            hotel = Hotel("H010", "Old Name", 2, 2)
+            self.assertTrue(service.create(hotel))
 
-        # update name and rooms_available
-        result = service.update("H010", name="New Name", rooms_available=1)
-        self.assertTrue(result)
+            result = service.update("H010", name="New Name", rooms_available=1)
+            self.assertTrue(result)
 
-        updated = service.get("H010")
-        self.assertIsNotNone(updated)
-        self.assertEqual(updated.name, "New Name")
-        self.assertEqual(updated.rooms_available, 1)
+            updated = service.get("H010")
+            self.assertIsNotNone(updated)
+            self.assertEqual(updated.name, "New Name")
+            self.assertEqual(updated.rooms_available, 1)
+
+    def test_update_nonexistent_hotel_fails(self):
+        with TemporaryDirectory() as tmp:
+            store = FileStore(f"{tmp}/hotels.json")
+            service = HotelService(store)
+
+            self.assertFalse(service.update("H404", name="X"))
+
+    def test_update_invalid_record_fails(self):
+        with TemporaryDirectory() as tmp:
+            store = FileStore(f"{tmp}/hotels.json")
+            store.save({"H001": "not-a-dict"})
+
+            service = HotelService(store)
+            self.assertFalse(service.update("H001", name="X"))
+
+    def test_get_malformed_record_returns_none(self):
+        with TemporaryDirectory() as tmp:
+            store = FileStore(f"{tmp}/hotels.json")
+            store.save({"H001": {"hotel_id": "H001"}})  # faltan campos
+
+            service = HotelService(store)
+            self.assertIsNone(service.get("H001"))
+
+    def test_list_all_returns_empty_if_not_dict(self):
+        with TemporaryDirectory() as tmp:
+            store = FileStore(f"{tmp}/hotels.json")
+            store.save(["not", "a", "dict"])
+
+            service = HotelService(store)
+            self.assertEqual(service.list_all(), {})
 
 
-def test_display_hotel_info_nonexistent(self):
-    with TemporaryDirectory() as tmp:
-        store = FileStore(f"{tmp}/hotels.json")
-        service = HotelService(store)
-
-        # should not crash; expected None/False depending on your implementation
-        result = service.display("H404")
-        self.assertFalse(result)
+if __name__ == "__main__":
+    unittest.main()
