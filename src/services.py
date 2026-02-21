@@ -1,3 +1,10 @@
+"""
+Business services for hotels, customers, and reservations.
+
+These services use FileStore for persistence and provide CRUD operations
+and reservation logic with basic validations.
+"""
+
 from __future__ import annotations
 
 from dataclasses import asdict
@@ -8,10 +15,13 @@ from src.storage import FileStore
 
 
 class HotelService:
+    """Service for managing Hotel records."""
+
     def __init__(self, store: FileStore) -> None:
         self.store = store
 
     def create(self, hotel: Hotel) -> bool:
+        """Create a new hotel if it doesn't exist and values are valid."""
         hotels = self.store.load()
         if hotel.hotel_id in hotels:
             print("[ERROR] Hotel already exists.")
@@ -24,6 +34,7 @@ class HotelService:
         return True
 
     def get(self, hotel_id: str) -> Optional[Hotel]:
+        """Return a Hotel by id, or None if not found/invalid."""
         hotels = self.store.load()
         h = hotels.get(hotel_id)
         if not isinstance(h, dict):
@@ -35,6 +46,7 @@ class HotelService:
             return None
 
     def delete(self, hotel_id: str) -> bool:
+        """Delete a hotel by id."""
         hotels = self.store.load()
         if hotel_id not in hotels:
             print("[ERROR] Hotel not found.")
@@ -44,6 +56,7 @@ class HotelService:
         return True
 
     def update(self, hotel_id: str, **changes) -> bool:
+        """Update an existing hotel record with partial changes."""
         hotels = self.store.load()
         if hotel_id not in hotels:
             print("[ERROR] Hotel not found.")
@@ -58,15 +71,19 @@ class HotelService:
         return True
 
     def list_all(self) -> Dict[str, dict]:
+        """Return all hotels as a dict."""
         data = self.store.load()
         return data if isinstance(data, dict) else {}
 
 
 class CustomerService:
+    """Service for managing Customer records."""
+
     def __init__(self, store: FileStore) -> None:
         self.store = store
 
     def create(self, customer: Customer) -> bool:
+        """Create a new customer if it doesn't exist."""
         customers = self.store.load()
         if customer.customer_id in customers:
             print("[ERROR] Customer already exists.")
@@ -76,6 +93,7 @@ class CustomerService:
         return True
 
     def get(self, customer_id: str) -> Optional[Customer]:
+        """Return a Customer by id, or None if not found/invalid."""
         customers = self.store.load()
         c = customers.get(customer_id)
         if not isinstance(c, dict):
@@ -87,6 +105,7 @@ class CustomerService:
             return None
 
     def delete(self, customer_id: str) -> bool:
+        """Delete a customer by id."""
         customers = self.store.load()
         if customer_id not in customers:
             print("[ERROR] Customer not found.")
@@ -96,6 +115,7 @@ class CustomerService:
         return True
 
     def update(self, customer_id: str, **changes) -> bool:
+        """Update an existing customer record with partial changes."""
         customers = self.store.load()
         if customer_id not in customers:
             print("[ERROR] Customer not found.")
@@ -110,11 +130,14 @@ class CustomerService:
         return True
 
     def list_all(self) -> Dict[str, dict]:
+        """Return all customers as a dict."""
         data = self.store.load()
         return data if isinstance(data, dict) else {}
 
 
 class ReservationService:
+    """Service for managing Reservation records and room availability updates."""
+
     def __init__(
         self,
         reservations_store: FileStore,
@@ -126,6 +149,7 @@ class ReservationService:
         self.customers = customer_service
 
     def create(self, reservation: Reservation) -> bool:
+        """Create a reservation if ids exist and rooms are available."""
         reservations = self.store.load()
         if reservation.reservation_id in reservations:
             print("[ERROR] Reservation already exists.")
@@ -158,6 +182,7 @@ class ReservationService:
         return True
 
     def cancel(self, reservation_id: str) -> bool:
+        """Cancel an existing reservation and release a room back to the hotel."""
         reservations = self.store.load()
         rec = reservations.get(reservation_id)
         if not isinstance(rec, dict):
@@ -193,6 +218,6 @@ class ReservationService:
         return True
 
     def list_all(self) -> Dict[str, dict]:
+        """Return all reservations as a dict."""
         data = self.store.load()
         return data if isinstance(data, dict) else {}
-        
