@@ -151,7 +151,7 @@ class ReservationService:
             rooms_total=hotel.rooms_total,
             rooms_available=hotel.rooms_available,
             name=hotel.name,
-            hotel_id=hotel.hotel_id,
+            
         )
 
         reservations[reservation.reservation_id] = asdict(reservation)
