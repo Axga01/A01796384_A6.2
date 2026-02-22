@@ -1,0 +1,37 @@
+=== Manual Functional Run ===
+Timestamp: 2026-02-22T00:24:22
+
+[Paths]
+ hotels      = data/hotels.json
+ customers   = data/customers.json
+ reservations= data/reservations.json
+
+[Generated IDs]
+ hotel_id      = HF1245F0
+ customer_id   = CF635728
+ reservation_id= RF308802
+
+[1] Create hotel
+ create -> True
+
+[2] Create customer
+ create -> True
+
+[3] Create reservation
+ create -> True
+
+[4] Validate hotel rooms availability decreased
+ rooms_total     = 3
+ rooms_available = 2
+
+[5] Cancel reservation
+ cancel -> True
+
+[6] Validate hotel rooms availability restored
+ rooms_total     = 3
+ rooms_available = 3
+
+[7] Validate reservation status in store
+ status = CANCELED
+
+=== Done ===
