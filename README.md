@@ -9,13 +9,12 @@ Este repositorio implementa un sistema simple de **Hoteles**, **Clientes** y **R
 - Flujo funcional manual (`manual_run.py`) usando `data/*.json`
 - Evidencia de ejecución y análisis estático (`flake8`, `pylint`, `coverage`) en `results/`
 
-> README ajustado a la estructura real del repo y al `manual_run.py` (sin inventar archivos).
 
 ---
 
 ## 1) Requisitos y herramientas
 
-- Python 3.x
+- Python 3
 - Dependencias en `requirements.txt`
 
 Herramientas:
@@ -227,23 +226,38 @@ En la carpeta `results/` se incluyen los archivos generados durante la ejecució
 ### Pruebas unitarias
 - `unittest.txt`
 - `unittest_final.txt`
+<img width="1439" height="590" alt="image" src="https://github.com/user-attachments/assets/e114f322-2bea-47fa-a40f-d20fa02090f1" />
 
 ### Análisis estático — flake8
 - `flake8.txt`
+<img width="1150" height="360" alt="image" src="https://github.com/user-attachments/assets/81978100-843b-4744-be8f-58290435ce73" />
+
 - `flake8_final.txt`
+<img width="1618" height="318" alt="image" src="https://github.com/user-attachments/assets/6e192313-e0a2-4c82-a3d7-bed803cf1667" />
+*NOTA: No se muestra ningun resultado ya que al no haber errores con flake8 no arroja ningún valor.
 
 ### Análisis estático — pylint
 - `pylint_src.txt`
+<img width="1431" height="679" alt="image" src="https://github.com/user-attachments/assets/a072994a-fcd4-42f7-9d31-921b24712043" />
+
 - `pylint_src_final.txt`
+<img width="1242" height="548" alt="image" src="https://github.com/user-attachments/assets/53ea8ef5-8661-4a76-b382-05198b7ee701" />
+
 - `pylint_tests.txt`
+<img width="1661" height="692" alt="image" src="https://github.com/user-attachments/assets/d1b5680c-8ceb-47dc-b55f-11de03230296" />
+
 - `pylint_tests_final.txt`
+<img width="1466" height="553" alt="image" src="https://github.com/user-attachments/assets/a172cfd7-0298-4d43-a929-4c6ea5b6f0db" />
+
 
 ### Cobertura
 - `coverage.txt`
 - `coverage_final.txt`
+<img width="1833" height="843" alt="image" src="https://github.com/user-attachments/assets/3582835c-44de-4e18-878a-2d09f0200b43" />
 
 ### Flujo funcional manual
 - `functional_run.txt`
+<img width="1834" height="757" alt="image" src="https://github.com/user-attachments/assets/7a1c0e80-43e8-4d35-af32-6a0ecadf6b16" />
 
 ---
 
