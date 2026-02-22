@@ -10,5 +10,11 @@
     "hotel_id": "H002",
     "customer_id": "C002",
     "status": "CANCELED"
+  },
+  "RF308802": {
+    "reservation_id": "RF308802",
+    "hotel_id": "HF1245F0",
+    "customer_id": "CF635728",
+    "status": "CANCELED"
   }
 }

@@ -8,5 +8,10 @@
     "customer_id": "C002",
     "name": "Customer Two",
     "email": "customer2@test.com"
+  },
+  "CF635728": {
+    "customer_id": "CF635728",
+    "name": "Cliente Funcional",
+    "email": null
   }
 }

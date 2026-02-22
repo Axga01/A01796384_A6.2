@@ -10,5 +10,11 @@
     "name": "Hotel B",
     "rooms_total": 1,
     "rooms_available": 1
+  },
+  "HF1245F0": {
+    "hotel_id": "HF1245F0",
+    "name": "Hotel Funcional",
+    "rooms_total": 3,
+    "rooms_available": 3
   }
 }
